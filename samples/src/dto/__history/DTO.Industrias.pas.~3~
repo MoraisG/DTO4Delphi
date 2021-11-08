@@ -1,0 +1,18 @@
+unit DTO.Industrias;
+
+interface
+
+type
+  IDTOIndustrias = interface
+    ['{C2C650C9-9D09-429C-A6EA-A9C0DFA5DA6B}']
+    function SetCodigo(AValue: Integer): IDTOIndustrias;
+    function SetNome(AValue: String): IDTOIndustrias;
+    function SetNomeCompleto(AValue: String): IDTOIndustrias;
+    function Codigo: Integer;
+    function Nome: String;
+    function NomeCompleto: String;
+  end;
+
+implementation
+
+end.

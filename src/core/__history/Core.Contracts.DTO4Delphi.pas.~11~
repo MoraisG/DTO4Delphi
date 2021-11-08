@@ -1,0 +1,21 @@
+unit Core.Contracts.DTO4Delphi;
+
+interface
+
+type
+  ICoreParams4DTODelphi<T: IInterface> = interface;
+
+  ICoreDTO4Delphi<T: IInterface> = interface
+    ['{52C3750B-84E0-41B4-AA07-1E0BAFE52BA1}']
+    function Bind: ICoreDTO4Delphi<T>;
+    function DTO: T;
+  end;
+
+  ICoreParams4DTODelphi<T: IInterface> = interface
+    ['{9753CD92-51CC-47DA-88CD-88D97199E073}']
+    function ClassType: TClass;
+  end;
+
+implementation
+
+end.

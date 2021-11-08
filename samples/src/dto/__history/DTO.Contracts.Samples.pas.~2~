@@ -1,0 +1,13 @@
+unit DTO.Contracts.Samples;
+
+interface
+
+type
+
+  IPessoa = interface
+    ['{1AAE9C12-B9E2-414F-B8AC-81B151812FE1}']
+  end;
+
+implementation
+
+end.

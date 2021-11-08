@@ -1,0 +1,12 @@
+unit DTO.Industrias;
+
+interface
+
+type
+  IDTOIndustrias = interface
+    ['{C2C650C9-9D09-429C-A6EA-A9C0DFA5DA6B}']
+  end;
+
+implementation
+
+end.

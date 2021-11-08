@@ -1,0 +1,12 @@
+unit Types.Attributes.DTO4Delphi;
+
+interface
+
+type
+{$M+}
+  Instance = class(TCustomAttribute)
+  end;
+
+implementation
+
+end.

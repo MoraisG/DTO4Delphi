@@ -1,0 +1,33 @@
+unit Core.Contracts.DTO4Delphi;
+
+interface
+
+uses
+  System.Generics.Collections,
+  Data.DB;
+
+type
+  ICoreParams4DTODelphi<T: IInterface> = interface;
+
+  ICoreDTO4Delphi<T: IInterface> = interface
+    ['{52C3750B-84E0-41B4-AA07-1E0BAFE52BA1}']
+    function Bind: ICoreDTO4Delphi<T>;
+    function DataSetToObject: T;
+    function DTO: T;
+    function Params: ICoreParams4DTODelphi<T>;
+    function GetList: TList<T>;
+  end;
+
+  ICoreParams4DTODelphi<T: IInterface> = interface
+    ['{9753CD92-51CC-47DA-88CD-88D97199E073}']
+    function ClassType(AValue: TClass): ICoreParams4DTODelphi<T>; overload;
+    function ClassType: TClass; overload;
+    function DataSet(ADataSource: TDataSource)
+      : ICoreParams4DTODelphi<T>; overload;
+    function GetDataSet: TDataSet; overload;
+    function &End: ICoreDTO4Delphi<T>;
+  end;
+
+implementation
+
+end.

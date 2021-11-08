@@ -1,0 +1,116 @@
+unit RTTI.Manager.DTO4Delphi;
+
+interface
+
+uses Core.Contracts.DTO4Delphi, RTTI.Contracts.DT4Delphi, System.RTTI;
+
+type
+
+  TRTTIManager4DTODelphi<T: IInterface> = class(TInterfacedObject,
+    IRTTIManager<T>)
+  private
+    [weak]
+    FParent: ICoreDTO4Delphi<T>;
+    FContext: TRttiContext;
+  public
+    constructor Create(AParent: ICoreDTO4Delphi<T>);
+    destructor Destroy; override;
+    class function New(AParent: ICoreDTO4Delphi<T>): IRTTIManager<T>;
+    function AsInstace: T;
+    function Bind: IRTTIManager<T>;
+    function DataSetToObject: IRTTIManager<T>;
+    function DataSetToList: IRTTIManager<T>;
+  end;
+
+implementation
+
+{ TRTTIManager4DTODelphi<T> }
+
+uses System.SysUtils, Types.Attributes.DTO4Delphi;
+
+function TRTTIManager4DTODelphi<T>.AsInstace: T;
+var
+  LType: TRttiType;
+  LMethods: TRttiMethod;
+  LAttributes: TCustomAttribute;
+begin
+  Result := nil;
+
+  LType := FContext.GetType(FParent.Params.ClassType);
+
+  for LMethods in LType.GetDeclaredMethods do
+    for LAttributes in LMethods.GetAttributes do
+      if LAttributes is Instance then
+        Result := LMethods.Invoke(FParent.Params.ClassType, []).AsType<T>;
+
+end;
+
+function TRTTIManager4DTODelphi<T>.Bind: IRTTIManager<T>;
+begin
+  Result := Self;
+end;
+
+constructor TRTTIManager4DTODelphi<T>.Create(AParent: ICoreDTO4Delphi<T>);
+begin
+  FParent := AParent;
+  FContext := TRttiContext.Create;
+end;
+
+function TRTTIManager4DTODelphi<T>.DataSetToList: IRTTIManager<T>;
+var
+  LType: TRttiType;
+  LInstance: TRttiInstanceType;
+  LInterface: TRttiInterfaceType;
+  LMethods: TRttiMethod;
+  LAttributes: TCustomAttribute;
+begin
+  Result := Self;
+  LType := FContext.GetType(FParent.Params.ClassType);
+  LInstance := LType.AsInstance;
+
+  FParent.Params.GetDataSet.First;
+  FParent.Params.GetDataSet.DisableControls;
+  while not FParent.Params.GetDataSet.Eof do
+  begin
+
+
+
+    FParent.Params.GetDataSet.Next;
+  end;
+
+end;
+
+function TRTTIManager4DTODelphi<T>.DataSetToObject: IRTTIManager<T>;
+var
+  LType: TRttiType;
+  LInstance: TRttiInstanceType;
+  LInterface: TRttiInterfaceType;
+  LMethods: TRttiMethod;
+  LAttributes: TCustomAttribute;
+begin
+  Result := Self;
+  LType := FContext.GetType(FParent.Params.ClassType);
+  LInstance := LType.AsInstance;
+
+  for LInterface in LInstance.GetDeclaredImplementedInterfaces do
+    for LMethods in LInterface.GetDeclaredMethods do
+      for LAttributes in LMethods.GetAttributes do
+        if LAttributes is Campo then
+          LMethods.Invoke(FParent.Params.ClassType,
+            [FParent.Params.GetDataSet.FieldByName(Campo(LAttributes).Field)])
+
+end;
+
+destructor TRTTIManager4DTODelphi<T>.Destroy;
+begin
+  FContext.Free;
+  inherited;
+end;
+
+class function TRTTIManager4DTODelphi<T>.New(AParent: ICoreDTO4Delphi<T>)
+  : IRTTIManager<T>;
+begin
+  Result := Self.Create(AParent);
+end;
+
+end.

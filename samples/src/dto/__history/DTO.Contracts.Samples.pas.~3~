@@ -1,0 +1,17 @@
+unit DTO.Contracts.Samples;
+
+interface
+
+type
+
+  IPessoa = interface
+    ['{1AAE9C12-B9E2-414F-B8AC-81B151812FE1}']
+    function Nome(AValue: String): IPessoa; overload;
+    function Nome: String; overload;
+    function Idade(AValue: Integer): IPessoa; overload;
+    function Idade: Integer; overload;
+  end;
+
+implementation
+
+end.

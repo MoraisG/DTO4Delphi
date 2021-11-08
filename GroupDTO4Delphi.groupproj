@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1527B16F-FBF3-452E-B906-B416E630C9D5}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DTO4Delphi.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="samples\src\SampleDTO4D.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DTO4Delphi">
+        <MSBuild Projects="DTO4Delphi.dproj"/>
+    </Target>
+    <Target Name="DTO4Delphi:Clean">
+        <MSBuild Projects="DTO4Delphi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DTO4Delphi:Make">
+        <MSBuild Projects="DTO4Delphi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SampleDTO4D">
+        <MSBuild Projects="samples\src\SampleDTO4D.dproj"/>
+    </Target>
+    <Target Name="SampleDTO4D:Clean">
+        <MSBuild Projects="samples\src\SampleDTO4D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SampleDTO4D:Make">
+        <MSBuild Projects="samples\src\SampleDTO4D.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DTO4Delphi;SampleDTO4D"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DTO4Delphi:Clean;SampleDTO4D:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DTO4Delphi:Make;SampleDTO4D:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

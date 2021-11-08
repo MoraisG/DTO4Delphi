@@ -1,0 +1,32 @@
+unit Types.Attributes.DTO4Delphi;
+
+interface
+
+type
+{$M+}
+  Instance = class(TCustomAttribute)
+  end;
+
+  Injection<T: IInterface> = class(TCustomAttribute)
+  private
+    FParent: T;
+  public
+    constructor Create(AInjection: T);
+    function Obj: T;
+  end;
+
+implementation
+
+{ Injection }
+
+constructor Injection<T>.Create(AInjection: T);
+begin
+  FParent := AInjection;
+end;
+
+function Injection<T>.Obj: T;
+begin
+  Result := FParent;
+end;
+
+end.

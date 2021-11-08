@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/07/22 21:15:54.000.078,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/22 21:17:13.000.534,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/22 21:19:34.000.178,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/22 21:29:03.000.241,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/24 20:14:38.000.466,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/08 12:46:24.000.797,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/19 22:35:32.000.906,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/08/19 22:40:29.000.102,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/27 18:57:12.000.190,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/08 22:39:31.000.131,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/29 11:59:35.000.182,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:37:45.000.118,=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:38:26.000.843,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\view\Main.dfm=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/09/25 12:38:26.000.843,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\view\Main.pas=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:38:37.000.790,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\SampleDTO4D.dproj=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2021/09/25 12:39:37.000.204,=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:40:01.000.635,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\DTO.Contracts.Samples.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 13:08:20.000.233,=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\impl\DTO.Pessoa.pas</Transaction>
+    <Transaction>2021/09/25 13:49:44.000.601,=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 13:50:00.000.931,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\impl\DTO.Empresa.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas</Transaction>
+    <Transaction>2021/10/10 18:52:49.000.126,=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas</Transaction>
+    <Transaction>2021/10/10 18:53:20.000.421,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\DTO.Industrias.pas</Transaction>
+    <Transaction>2021/10/10 19:40:26.569,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\DTO.Industrias.pas=</Transaction>
+    <Transaction>2021/10/10 19:40:36.934,=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\DTO.Industrias.pas</Transaction>
+  </Transactions>
+</BorlandProject>

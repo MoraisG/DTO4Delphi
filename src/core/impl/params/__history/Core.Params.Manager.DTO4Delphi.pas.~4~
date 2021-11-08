@@ -1,0 +1,41 @@
+unit Core.Params.Manager.DTO4Delphi;
+
+interface
+
+uses Core.Contracts.DTO4Delphi;
+
+type
+
+  TCoreParamsDTO4Delphi<T> = class(TInterfacedObject, ICoreParams4DTODelphi<T>)
+  private
+    [weak]
+    FParent: ICoreDTO4Delphi<T>;
+  public
+    constructor Create(AParent: ICoreDTO4Delphi<T>);
+    destructor Destroy; override;
+    class function New(AParent: ICoreDTO4Delphi<T>): ICoreParams4DTODelphi<T>;
+
+  end;
+
+implementation
+
+{ TCoreParamsDTO4Delphi<T> }
+
+constructor TCoreParamsDTO4Delphi<T>.Create(AParent: ICoreDTO4Delphi<T>);
+begin
+
+end;
+
+destructor TCoreParamsDTO4Delphi<T>.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TCoreParamsDTO4Delphi<T>.New(AParent: ICoreDTO4Delphi<T>)
+  : ICoreParams4DTODelphi<T>;
+begin
+  Result := Self.Create(AParent);
+end;
+
+end.

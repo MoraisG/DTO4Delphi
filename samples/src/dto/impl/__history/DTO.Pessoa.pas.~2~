@@ -1,0 +1,37 @@
+unit DTO.Pessoa;
+
+interface
+
+type
+{$M+}
+  TPessoDTO = class(TInterfacedObject, IPessoa)
+  private
+
+  public
+    constructor Create;
+    destructor Destroy; override;
+    class function New: IPessoa;
+
+  end;
+
+implementation
+
+{ TPessoDTO }
+
+constructor TPessoDTO.Create;
+begin
+
+end;
+
+destructor TPessoDTO.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TPessoDTO.New: IPessoa;
+begin
+  Result := Self.Create;
+end;
+
+end.

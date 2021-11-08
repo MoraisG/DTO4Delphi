@@ -1,0 +1,17 @@
+unit RTTI.Contracts.DT4Delphi;
+
+interface
+
+type
+
+  IRTTIManager<T: IInterface> = interface
+    ['{B6BB910D-390F-46DB-8F94-4EC0B445FE63}']
+    function AsInstace: T;
+    function DataSetToObject: IRTTIManager<T>;
+    function DataSetToList: IRTTIManager<T>;
+    function Bind: IRTTIManager<T>;
+  end;
+
+implementation
+
+end.
