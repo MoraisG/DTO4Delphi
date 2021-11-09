@@ -5,9 +5,12 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, DTO.Contracts.Samples,
-  Core.Contracts.DTO4Delphi, Data.DB, Datasnap.DBClient,
-  DTO.Industrias;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.StdCtrls,
+  DTO.Contracts.Samples,
+  Core.Contracts.DTO4Delphi,
+  Data.DB,
+  Datasnap.DBClient, DTO.Industrias;
 
 type
   TForm1 = class(TForm)
@@ -35,17 +38,15 @@ var
 implementation
 
 uses
-  Core.Manager.DTO4Delphi,
-  DTO.Pessoa;
+  Core.Manager.DTO4Delphi;
 
 {$R *.dfm}
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  FPessoaDTO := TCoreManagerDTO4Delphi<IPessoa>.New.Params.ClassType
-    (TPessoDTO).Return;
+  FPessoaDTO := TCoreManagerDTO4Delphi<IPessoa>.New;
 
-  FPessoaDTO.DTO.Nome('Gabriel').Idade(27);
+  FPessoaDTO.DTO.Nome('Developer JR').Idade(58);
 
   ShowMessage(FPessoaDTO.DTO.Nome);
 end;
@@ -53,26 +54,17 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 var
   LIndustriaDTO: ICoreDTO4Delphi<IDTOIndustrias>;
-  LIndustria : IDTOIndustrias;
+  LIndustria: IDTOIndustrias;
 begin
   Memo1.Lines.Clear;
-  LIndustriaDTO := TCoreManagerDTO4Delphi<IDTOIndustrias>
-                  .New
-                    .Params
-                      .ClassType(TDTOIndustrias)
-                      .DataSet(dsIndustrias)
-                    .Return;
+  LIndustriaDTO := TCoreManagerDTO4Delphi<IDTOIndustrias>.New.Params.DataSet
+    (dsIndustrias).Return;
 
-  for LIndustria in LIndustriaDTO.DataSetToList.GetList do
+  for LIndustria in LIndustriaDTO.DataSetToList do
   begin
-    Memo1.Lines.Add(
-      Format(
-        '|Codigo %d|Apelido: %s|Nome: %s|',
-        [LIndustria.Codigo, LIndustria.Nome, LIndustria.NomeCompleto]
-          )
-      );
+    Memo1.Lines.Add(Format('|Codigo %d|Apelido: %s|Nome: %s|',
+      [LIndustria.Codigo, LIndustria.Nome, LIndustria.NomeCompleto]));
   end;
-
 
 end;
 

@@ -19,8 +19,10 @@ type
     destructor Destroy; override;
     class function New: ICoreDTO4Delphi<T>;
     function Bind: ICoreDTO4Delphi<T>;
+    function DTO: T;
     function DataSetToObject: T;
     function DataSetToList(const AOwnwer: Boolean = true): TList<T>;
+    function GetList : TList<T>;
     function Params: ICoreParams4DTODelphi<T>;
   end;
 
@@ -61,6 +63,16 @@ begin
   if FOwnerList then
     FListObjs.Free;
   inherited;
+end;
+
+function TCoreManagerDTO4Delphi<T>.DTO: T;
+begin
+  Result := TRTTIManager4DTODelphi<T>.New(Self).AsInstace;
+end;
+
+function TCoreManagerDTO4Delphi<T>.GetList: TList<T>;
+begin
+  Result := FListObjs;
 end;
 
 class function TCoreManagerDTO4Delphi<T>.New: ICoreDTO4Delphi<T>;

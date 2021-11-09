@@ -22,7 +22,7 @@ uses
 
 class function TRegisterClassDTO4D.GetClass<T>: TClass;
 begin
-  Result := FRegister.Items[GetGUID];
+  Result := FRegister.Items[GetGUID<T>];
 end;
 
 class function TRegisterClassDTO4D.GetGUID<T>: TGUID;

@@ -66,7 +66,7 @@ var
   LAttributes: TCustomAttribute;
   LField: TField;
 begin
-  Result := Self.AsInstace;
+  Result := Self;
   LType := FContext.GetType(GetClass);
 
   FParent.Params.GetDataSet.First;
@@ -129,7 +129,7 @@ begin
     begin
       if LAttributes is Query then
       begin
-        LAttributes := Query(LAttributes).QuerName;
+        LNameQuery := Query(LAttributes).QuerName;
         /// Realizar a consulta para o dataset;
         Break;
       end;

@@ -8,6 +8,7 @@ uses
 
 type
 
+  [Query('SEL_IND')]
   IDTOIndustrias = interface
     ['{C2C650C9-9D09-429C-A6EA-A9C0DFA5DA6B}']
     [Campo('IND_CODE')]
@@ -32,7 +33,7 @@ type
   public
     constructor Create;
     destructor Destroy; override;
-    [Instance]
+    [New__]
     class function New: IDTOIndustrias;
     function SetCodigo(AValue: Integer): IDTOIndustrias;
     function SetNome(AValue: String): IDTOIndustrias;
@@ -44,6 +45,7 @@ type
 
 implementation
 
+uses Core.Registry.DTO4D;
 { TDTOIndustrias }
 
 function TDTOIndustrias.Codigo: Integer;
@@ -94,5 +96,12 @@ begin
   Result := Self;
   FNomeCompleto := AValue;
 end;
+
+initialization
+
+TRegisterClassDTO4D.RegisterClass(TRegisterClassDTO4D.GetGUID<IDTOIndustrias>,
+  TDTOIndustrias);
+
+finalization
 
 end.

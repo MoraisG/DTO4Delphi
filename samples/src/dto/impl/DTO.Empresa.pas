@@ -6,16 +6,14 @@ uses DTO.Contracts.Samples, DTO.Pessoa, Types.Attributes.DTO4Delphi;
 
 type
 {$M+}
-
-  [Query('SEL_ELE')]
   TEmpresaDTO = class(TInterfacedObject, IEmpresa)
   private
-    FProprietario: IPessoa;
+    FNome: String;
   public
-    constructor Create(AParent: IPessoa);
+    constructor Create;
     destructor Destroy; override;
     [New__]
-    class function New(AParent: IPessoa): IEmpresa;
+    class function New: IEmpresa;
     function Proprietario(AValue: String): IEmpresa; overload;
     function Propriertario: String; overload;
   end;
@@ -26,9 +24,9 @@ implementation
 
 uses Core.Registry.DTO4D;
 
-constructor TEmpresaDTO.Create(AParent: IPessoa);
+constructor TEmpresaDTO.Create;
 begin
-  FProprietario := AParent;
+
 end;
 
 destructor TEmpresaDTO.Destroy;
@@ -37,26 +35,26 @@ begin
   inherited;
 end;
 
-class function TEmpresaDTO.New(AParent: IPessoa): IEmpresa;
+class function TEmpresaDTO.New: IEmpresa;
 begin
-  Result := Self.Create(AParent);
+  Result := Self.Create();
 end;
 
 function TEmpresaDTO.Propriertario: String;
 begin
-  Result := FProprietario.Nome;
+  Result := FNome;
 end;
 
 function TEmpresaDTO.Proprietario(AValue: String): IEmpresa;
 begin
   Result := Self;
-  FProprietario.Nome(AValue);
+  FNome := AValue;
 end;
 
 initialization
 
-TRegisterClassDTO4D
-  .RegisterClass(TRegisterClassDTO4D.GetGUID<IEmpresa>,TEmpresaDTO);
+TRegisterClassDTO4D.RegisterClass(TRegisterClassDTO4D.GetGUID<IEmpresa>,
+  TEmpresaDTO);
 
 finalization
 
