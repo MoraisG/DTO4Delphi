@@ -2,7 +2,9 @@ unit DTO.Pessoa;
 
 interface
 
-uses DTO.Contracts.Samples, Types.Attributes.DTO4Delphi;
+uses
+  DTO.Contracts.Samples,
+  Types.Attributes.DTO4Delphi;
 
 type
 {$M+}
@@ -14,7 +16,7 @@ type
     constructor Create;
     destructor Destroy; override;
 
-    [Instance]
+    [New__]
     class function New: IPessoa;
 
     function Nome(AValue: String): IPessoa; overload;
@@ -26,6 +28,8 @@ type
 implementation
 
 { TPessoDTO }
+
+uses Core.Registry.DTO4D;
 
 constructor TPessoDTO.Create;
 begin
@@ -64,5 +68,12 @@ function TPessoDTO.Nome: String;
 begin
   Result := FNome;
 end;
+
+initialization
+
+TRegisterClassDTO4D
+  .RegisterClass(TRegisterClassDTO4D.GetGUID<IPessoa>,TPessoDTO);
+
+finalization
 
 end.

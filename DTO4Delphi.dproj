@@ -126,6 +126,11 @@
         <DCCReference Include="src\rtti\impl\RTTI.Manager.DTO4Delphi.pas"/>
         <DCCReference Include="src\core\impl\Core.Manager.DTO4Delphi.pas"/>
         <DCCReference Include="src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas"/>
+        <DCCReference Include="src\registry\Core.Registry.DTO4D.pas"/>
+        <DCCReference Include="src\types\enums\Types.Enums.DTO4D.pas"/>
+        <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByResource.DTO4D.pas"/>
+        <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas"/>
+        <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

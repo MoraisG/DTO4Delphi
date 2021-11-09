@@ -37,6 +37,11 @@ contains
   Types.Attributes.DTO4Delphi in 'src\types\attributes\Types.Attributes.DTO4Delphi.pas',
   RTTI.Manager.DTO4Delphi in 'src\rtti\impl\RTTI.Manager.DTO4Delphi.pas',
   Core.Manager.DTO4Delphi in 'src\core\impl\Core.Manager.DTO4Delphi.pas',
-  Core.Params.Manager.DTO4Delphi in 'src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas';
+  Core.Params.Manager.DTO4Delphi in 'src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas',
+  Core.Registry.DTO4D in 'src\registry\Core.Registry.DTO4D.pas',
+  Types.Enums.DTO4D in 'src\types\enums\Types.Enums.DTO4D.pas',
+  RTTI.Strategy.QueryByResource.DTO4D in 'src\rtti\impl\strategy\RTTI.Strategy.QueryByResource.DTO4D.pas',
+  RTTI.Strategy.QueryByBLOB.DTO4D in 'src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas',
+  Types.Enums.Helpers.DTO4D in 'src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas';
 
 end.

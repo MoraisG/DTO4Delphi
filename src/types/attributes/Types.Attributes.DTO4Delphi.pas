@@ -2,9 +2,11 @@ unit Types.Attributes.DTO4Delphi;
 
 interface
 
+uses Types.Enums.DTO4D;
+
 type
 {$M+}
-  Instance = class(TCustomAttribute)
+  New__ = class(TCustomAttribute)
   end;
 
   Campo = class(TCustomAttribute)
@@ -17,34 +19,22 @@ type
     property Field: String read FField write SetField;
   end;
 
-  Injection = class(TCustomAttribute)
+  Query = class(TCustomAttribute)
   private
-    FClass: TClass;
-    FParent: IInterface;
+    FQuerName: String;
+    FQueryType: TEnumQuery;
+    procedure SetQuerName(const Value: String);
+    procedure SetQueryType(const Value: TEnumQuery);
   public
-    constructor Create(AInjection: TClass);
-    function ClassType: TClass;
-    function Obj: IInterface;
+    constructor Create(const AQueryName: String;
+      const AType: TEnumQuery = tpQueryBLOB);
+    destructor Destroy; override;
+  published
+    property QuerName: String read FQuerName write SetQuerName;
+    property QueryType: TEnumQuery read FQueryType write SetQueryType;
   end;
 
 implementation
-
-{ Injection }
-
-function Injection.ClassType: TClass;
-begin
-  Result := FClass;
-end;
-
-constructor Injection.Create(AInjection: TClass);
-begin
-  FClass := AInjection;
-end;
-
-function Injection.Obj: IInterface;
-begin
-  Result := FParent;
-end;
 
 { Campo }
 
@@ -62,6 +52,31 @@ end;
 procedure Campo.SetField(const Value: String);
 begin
   FField := Value;
+end;
+
+{ Query }
+
+constructor Query.Create(const AQueryName: String;
+  const AType: TEnumQuery = tpQueryBLOB);
+begin
+  QuerName := AQueryName;
+  QueryType := AType;
+end;
+
+destructor Query.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure Query.SetQuerName(const Value: String);
+begin
+  FQuerName := Value;
+end;
+
+procedure Query.SetQueryType(const Value: TEnumQuery);
+begin
+  FQueryType := Value;
 end;
 
 end.

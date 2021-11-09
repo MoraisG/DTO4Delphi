@@ -6,14 +6,15 @@ uses DTO.Contracts.Samples, DTO.Pessoa, Types.Attributes.DTO4Delphi;
 
 type
 {$M+}
+
+  [Query('SEL_ELE')]
   TEmpresaDTO = class(TInterfacedObject, IEmpresa)
   private
     FProprietario: IPessoa;
   public
     constructor Create(AParent: IPessoa);
     destructor Destroy; override;
-
-    [Injection(TPessoDTO)]
+    [New__]
     class function New(AParent: IPessoa): IEmpresa;
     function Proprietario(AValue: String): IEmpresa; overload;
     function Propriertario: String; overload;
@@ -22,6 +23,8 @@ type
 implementation
 
 { TEmpresaDTO }
+
+uses Core.Registry.DTO4D;
 
 constructor TEmpresaDTO.Create(AParent: IPessoa);
 begin
@@ -49,5 +52,12 @@ begin
   Result := Self;
   FProprietario.Nome(AValue);
 end;
+
+initialization
+
+TRegisterClassDTO4D
+  .RegisterClass(TRegisterClassDTO4D.GetGUID<IEmpresa>,TEmpresaDTO);
+
+finalization
 
 end.

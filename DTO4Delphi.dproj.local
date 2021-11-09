@@ -2,23 +2,33 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2021/09/25 12:05:47.000.498,=rtl.dcp</Transaction>
-    <Transaction>2021/09/25 12:06:14.000.941,D:\Desenvolvimento\Fontes\DTO4Delphi\DTO4Delphi.dproj=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2021/09/25 12:06:14.000.941,C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj=D:\Desenvolvimento\Fontes\DTO4Delphi\DTO4Delphi.dproj</Transaction>
     <Transaction>2021/09/25 12:06:19.000.496,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 12:08:10.000.613,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\Core.Contracts.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:08:10.000.613,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\Core.Contracts.DTO4Delphi.pas</Transaction>
     <Transaction>2021/09/25 12:12:36.000.863,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 12:12:57.000.927,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\RTTI.Contracts.DT4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:12:57.000.927,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\RTTI.Contracts.DT4Delphi.pas</Transaction>
     <Transaction>2021/09/25 12:14:10.000.323,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 12:19:42.000.033,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\attributes\Types.Attributes.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:19:42.000.033,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\attributes\Types.Attributes.DTO4Delphi.pas</Transaction>
     <Transaction>2021/09/25 12:21:00.000.059,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 12:21:42.000.825,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\RTTI.Manager.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:21:42.000.825,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\RTTI.Manager.DTO4Delphi.pas</Transaction>
     <Transaction>2021/09/25 12:57:01.000.885,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 12:57:28.000.525,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\Core.Manager.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 12:57:28.000.525,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\Core.Manager.DTO4Delphi.pas</Transaction>
     <Transaction>2021/09/25 12:59:43.000.217,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 13:00:08.000.179,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.oas.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 13:00:19.000.714,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.oas.pas</Transaction>
+    <Transaction>2021/09/25 13:00:08.000.179,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.oas.pas</Transaction>
+    <Transaction>2021/09/25 13:00:19.000.714,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.oas.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas</Transaction>
     <Transaction>2021/09/25 13:06:48.000.550,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/09/25 13:07:11.000.662,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\impl\DTO.Pessoa.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/09/25 13:07:11.000.662,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\impl\DTO.Pessoa.pas</Transaction>
     <Transaction>2021/09/25 13:08:10.000.248,D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\dto\impl\DTO.Pessoa.pas=</Transaction>
     <Transaction>2021/10/10 19:03:01.000.833,=dbrtl.dcp</Transaction>
+    <Transaction>2021/11/08 21:35:26.279,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 21:36:14.928,D:\Desenvolvimento\Fontes\DTO4Delphi\src\registry\Core.Registry.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:19:40.999,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:19:59.922,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\Types.Enums.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:22:56.762,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:24:05.492,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\strategy\RTTI.Strategy.QueryByResource.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:24:11.567,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:24:33.254,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:25:08.147,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/08 22:25:37.915,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

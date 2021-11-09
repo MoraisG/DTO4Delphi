@@ -13,10 +13,8 @@ type
     ['{52C3750B-84E0-41B4-AA07-1E0BAFE52BA1}']
     function Bind: ICoreDTO4Delphi<T>;
     function DataSetToObject: T;
-    function DataSetToList: ICoreDTO4Delphi<T>;
-    function DTO: T;
+    function DataSetToList(const AOwnwer : boolean = true): TList<T>;
     function Params: ICoreParams4DTODelphi<T>;
-    function GetList: TList<T>;
   end;
 
   ICoreParams4DTODelphi<T: IInterface> = interface

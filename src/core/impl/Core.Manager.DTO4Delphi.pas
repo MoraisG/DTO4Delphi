@@ -12,7 +12,7 @@ type
     ICoreDTO4Delphi<T>)
   private
     FListObjs: TList<T>;
-    FInstance: T;
+    FOwnerList: Boolean;
     FParams: ICoreParams4DTODelphi<T>;
   public
     constructor Create;
@@ -20,9 +20,7 @@ type
     class function New: ICoreDTO4Delphi<T>;
     function Bind: ICoreDTO4Delphi<T>;
     function DataSetToObject: T;
-    function DataSetToList: ICoreDTO4Delphi<T>;
-    function DTO: T;
-    function GetList: TList<T>;
+    function DataSetToList(const AOwnwer: Boolean = true): TList<T>;
     function Params: ICoreParams4DTODelphi<T>;
   end;
 
@@ -42,37 +40,27 @@ end;
 constructor TCoreManagerDTO4Delphi<T>.Create;
 begin
   FListObjs := TList<T>.Create;
+  FOwnerList := true;
 end;
 
-function TCoreManagerDTO4Delphi<T>.DataSetToList: ICoreDTO4Delphi<T>;
+function TCoreManagerDTO4Delphi<T>.DataSetToList(const AOwnwer: Boolean = true)
+  : TList<T>;
 begin
-  Result := Self;
+  FOwnerList := AOwnwer;
   TRTTIManager4DTODelphi<T>.New(Self).DataSetToList;
+  Result := FListObjs;
 end;
 
 function TCoreManagerDTO4Delphi<T>.DataSetToObject: T;
 begin
-  Self.DTO;
-  TRTTIManager4DTODelphi<T>.New(Self).DataSetToObject;
-  Result := FInstance;
+  Result := TRTTIManager4DTODelphi<T>.New(Self).DataSetToObject;
 end;
 
 destructor TCoreManagerDTO4Delphi<T>.Destroy;
 begin
-  FListObjs.Free;
+  if FOwnerList then
+    FListObjs.Free;
   inherited;
-end;
-
-function TCoreManagerDTO4Delphi<T>.DTO: T;
-begin
-  if FInstance = nil then
-    FInstance := TRTTIManager4DTODelphi<T>.New(Self).AsInstace;
-  Result := FInstance;
-end;
-
-function TCoreManagerDTO4Delphi<T>.GetList: TList<T>;
-begin
-  Result := FListObjs;
 end;
 
 class function TCoreManagerDTO4Delphi<T>.New: ICoreDTO4Delphi<T>;
