@@ -6,7 +6,31 @@
 
 > ### É muito comum utilizar a classe concreta para mapear um objeto, contudo a abordagem feita pelo DTO4Delphi é por meio de interfaces, assim permite que o Delphi use seu ARC e faça o gerenciamento da memória.
 
-> ### *Exemplo de DTO*
+> ### *Como usar*
+
+> > ### ***DataSet para lista de objetos***
+
+```pascal
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  LIndustriaDAO: ICoreDTO4Delphi<IDTOIndustrias>;
+  LIndustriaDTO: IDTOIndustrias;
+begin
+  Memo1.Lines.Clear;
+  LIndustriaDAO := TCoreManagerDTO4Delphi<IDTOIndustrias>.New.Params.DataSet
+    (dsIndustrias).Return;
+
+  for LIndustriaDTO in LIndustriaDAO.DataSetToList do
+  begin
+    Memo1.Lines.Add(Format('|Codigo %d|Apelido: %s|Nome: %s|',
+      [LIndustriaDTO.Codigo, LIndustriaDTO.Nome, LIndustriaDTO.NomeCompleto]));
+  end;
+end;
+```
+
+>
+> ### *Como mapear*
+> 
 
 ```pascal
 uses
