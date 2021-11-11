@@ -3,12 +3,12 @@ unit DTO.Industrias;
 interface
 
 uses
-  Types.Attributes.DTO4Delphi;
+  Types.Attributes.DTO4Delphi, Types.Enums.DTO4D;
 {$M+}
 
 type
 
-  [Query('SEL_IND')]
+  [Query('SEL_IND', tpQueryResource)]
   IDTOIndustrias = interface
     ['{C2C650C9-9D09-429C-A6EA-A9C0DFA5DA6B}']
     [Campo('IND_CODE')]

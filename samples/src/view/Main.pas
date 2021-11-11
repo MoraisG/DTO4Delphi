@@ -1,7 +1,8 @@
 unit Main;
 
-interface
+{$I config.inc}
 
+interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
@@ -22,9 +23,11 @@ type
     cdsIndustriasLONG_NAME: TStringField;
     Button2: TButton;
     Memo1: TMemo;
+    btDataSetToObj: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btDataSetToObjClick(Sender: TObject);
   private
     { Private declarations }
     FPessoaDTO: ICoreDTO4Delphi<IPessoa>;
@@ -41,6 +44,14 @@ uses
   Core.Manager.DTO4Delphi;
 
 {$R *.dfm}
+
+procedure TForm1.btDataSetToObjClick(Sender: TObject);
+var
+  LIndustria: IDTOIndustrias;
+begin
+  LIndustria := TCoreManagerDTO4Delphi<IDTOIndustrias>.New.Params.DataSet
+    (dsIndustrias).Return.DataSetToObject;
+end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin

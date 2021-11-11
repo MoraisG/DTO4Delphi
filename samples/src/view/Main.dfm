@@ -16,7 +16,7 @@ object Form1: TForm1
   TextHeight = 13
   object Button1: TButton
     Left = 104
-    Top = 48
+    Top = 8
     Width = 193
     Height = 57
     Caption = 'Instanciar DTO'
@@ -25,10 +25,10 @@ object Form1: TForm1
   end
   object Button2: TButton
     Left = 104
-    Top = 128
+    Top = 80
     Width = 193
-    Height = 89
-    Caption = 'Button2'
+    Height = 57
+    Caption = 'DataSet to List'
     TabOrder = 1
     OnClick = Button2Click
   end
@@ -40,6 +40,15 @@ object Form1: TForm1
     Lines.Strings = (
       'Memo1')
     TabOrder = 2
+  end
+  object btDataSetToObj: TButton
+    Left = 104
+    Top = 152
+    Width = 193
+    Height = 57
+    Caption = 'DataSet to Object'
+    TabOrder = 3
+    OnClick = btDataSetToObjClick
   end
   object cdsIndustrias: TClientDataSet
     PersistDataPacket.Data = {

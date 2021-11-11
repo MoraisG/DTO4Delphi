@@ -9,6 +9,9 @@
         <Projects Include="samples\src\SampleDTO4D.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Connection4D.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="SampleDTO4D:Make">
         <MSBuild Projects="samples\src\SampleDTO4D.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Connection4D">
+        <MSBuild Projects="Connection4D.dproj"/>
+    </Target>
+    <Target Name="Connection4D:Clean">
+        <MSBuild Projects="Connection4D.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Connection4D:Make">
+        <MSBuild Projects="Connection4D.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="DTO4Delphi;SampleDTO4D"/>
+        <CallTarget Targets="DTO4Delphi;SampleDTO4D;Connection4D"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="DTO4Delphi:Clean;SampleDTO4D:Clean"/>
+        <CallTarget Targets="DTO4Delphi:Clean;SampleDTO4D:Clean;Connection4D:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="DTO4Delphi:Make;SampleDTO4D:Make"/>
+        <CallTarget Targets="DTO4Delphi:Make;SampleDTO4D:Make;Connection4D:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

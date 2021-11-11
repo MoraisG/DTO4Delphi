@@ -1,5 +1,7 @@
 program SampleDTO4D;
 
+{$R *.dres}
+
 uses
   Vcl.Forms,
   Main in 'view\Main.pas' {Form1},

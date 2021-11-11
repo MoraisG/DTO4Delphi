@@ -14,8 +14,7 @@ type
 
   IRTTIDataBase<T: IInterface> = interface
     ['{FD3B589B-D7F5-41FD-937E-2FDBA907E842}']
-    function QueryByBLOB: IRTTIDataBase<T>;
-    function QueryByResource: IRTTIDataBase<T>;
+    function Query: IRTTIDataBase<T>;
   end;
 
 implementation

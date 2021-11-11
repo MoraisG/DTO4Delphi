@@ -22,11 +22,16 @@ type
   ICoreParams4DTODelphi<T: IInterface> = interface
     ['{9753CD92-51CC-47DA-88CD-88D97199E073}']
     function ClassType(AValue: TClass): ICoreParams4DTODelphi<T>; overload;
-    function ClassType: TClass; overload;
+      deprecated;
+    function ClassType: TClass; overload; deprecated;
     function DataSet(ADataSource: TDataSource)
       : ICoreParams4DTODelphi<T>; overload;
+    function DataSet(ADataSet: TDataSet)
+      : ICoreParams4DTODelphi<T>; overload;
+    function GetNameQuery: String;
     function GetDataSet: TDataSet; overload;
     function Return: ICoreDTO4Delphi<T>;
+    function SetNameQuery(AValue: String): ICoreParams4DTODelphi<T>;
   end;
 
 implementation

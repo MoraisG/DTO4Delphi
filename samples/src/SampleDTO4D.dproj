@@ -83,7 +83,7 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_UnitSearchPath>../../src/core;../../src/types;../../src/types/attributes;../../src/rtti;../../src/rtti/impl;../../src/core/impl;../../src/core/impl/params;../../src/registry;../../src/types/enums;../../src/types/enums/helpers;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>../../src/core;../../src/types;../../src/types/attributes;../../src/rtti;../../src/rtti/impl;../../src/core/impl;../../src/core/impl/params;../../src/registry;../../src/types/enums;../../src/types/enums/helpers;../../src/model;../../src/model/impl;../../src/model/impl/dbexpress;../../src/rtti/impl/strategy;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -109,6 +109,11 @@
         <DCCReference Include="dto\impl\DTO.Pessoa.pas"/>
         <DCCReference Include="dto\impl\DTO.Empresa.pas"/>
         <DCCReference Include="dto\DTO.Industrias.pas"/>
+        <RcItem Include="resources\GET_TBL_CARGO.sql">
+            <ContainerId>ResourceItem</ContainerId>
+            <ResourceType>RCDATA</ResourceType>
+            <ResourceId>GET_TBL_CARGO</ResourceId>
+        </RcItem>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -135,6 +140,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="resources\GET_TBL_CARGO.sql" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\SampleDTO4D.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>SampleDTO4D.exe</RemoteName>

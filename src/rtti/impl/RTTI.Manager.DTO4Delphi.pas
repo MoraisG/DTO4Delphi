@@ -27,7 +27,12 @@ implementation
 
 { TRTTIManager4DTODelphi<T> }
 
-uses System.SysUtils, Types.Attributes.DTO4Delphi, Data.DB, Core.Registry.DTO4D;
+uses
+  System.SysUtils,
+  Types.Attributes.DTO4Delphi,
+  Data.DB,
+  Core.Registry.DTO4D,
+  Types.Enums.Helpers.DTO4D;
 
 function TRTTIManager4DTODelphi<T>.AsInstace: T;
 var
@@ -117,7 +122,7 @@ var
   LMethods: TRttiMethod;
   LAttributes: TCustomAttribute;
   LField: TField;
-  LNameQuery: String;
+  LRTTIDatabase: IRTTIDataBase<T>;
 begin
   Result := Self.AsInstace;
   LType := FContext.GetType(GetClass);
@@ -129,8 +134,9 @@ begin
     begin
       if LAttributes is Query then
       begin
-        LNameQuery := Query(LAttributes).QuerName;
-        /// Realizar a consulta para o dataset;
+        FParent.Params.SetNameQuery(Query(LAttributes).QuerName);
+        LRTTIDatabase := Query(LAttributes).QueryType.Query<T>(FParent);
+        LRTTIDatabase.Query;
         Break;
       end;
     end;
@@ -142,7 +148,7 @@ begin
           LField := FParent.Params.GetDataSet.FieldByName
             (Campo(LAttributes).Field);
           case LField.DataType of
-            ftString, ftWideString, ftWideMemo:
+            ftString, ftWideString, ftWideMemo, ftBlob:
               LMethods.Invoke(TValue.From<T>(Result), [LField.AsString]);
             ftSmallint, ftInteger, ftLongWord, ftShortint, ftWord:
               LMethods.Invoke(TValue.From<T>(Result), [LField.AsInteger]);
