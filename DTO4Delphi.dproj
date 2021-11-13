@@ -116,6 +116,7 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UnitSearchPath>src\types\attributes;src\types\enums\helpers;src\types\enums;src\types\commons;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -135,18 +136,18 @@
         <DCCReference Include="dbrtl.dcp"/>
         <DCCReference Include="DbxCommonDriver.dcp"/>
         <DCCReference Include="dbexpress.dcp"/>
-        <DCCReference Include="src\core\Core.Contracts.DTO4Delphi.pas"/>
-        <DCCReference Include="src\rtti\RTTI.Contracts.DT4Delphi.pas"/>
-        <DCCReference Include="src\types\attributes\Types.Attributes.DTO4Delphi.pas"/>
-        <DCCReference Include="src\rtti\impl\RTTI.Manager.DTO4Delphi.pas"/>
-        <DCCReference Include="src\core\impl\Core.Manager.DTO4Delphi.pas"/>
+        <DCCReference Include="src\core\Core.Contracts.DTO4D.pas"/>
+        <DCCReference Include="src\rtti\RTTI.Contracts.DTO4D.pas"/>
+        <DCCReference Include="src\types\attributes\Types.Attributes.DTO4D.pas"/>
+        <DCCReference Include="src\rtti\impl\RTTI.Manager.DTO4D.pas"/>
+        <DCCReference Include="src\core\impl\Core.Manager.DTO4D.pas"/>
         <DCCReference Include="src\core\impl\params\Core.Params.Manager.DTO4Delphi.pas"/>
         <DCCReference Include="src\registry\Core.Registry.DTO4D.pas"/>
         <DCCReference Include="src\types\enums\Types.Enums.DTO4D.pas"/>
         <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByResource.DTO4D.pas"/>
         <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas"/>
         <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas"/>
-        <DCCReference Include="src\types\exceptions\Types.Exceptions.DTO4Delphi.pas"/>
+        <DCCReference Include="src\types\exceptions\Types.Exceptions.DTO4D.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -1,4 +1,4 @@
-unit Types.Exceptions.DTO4Delphi;
+unit Types.Exceptions.DTO4D;
 
 interface
 

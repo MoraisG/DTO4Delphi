@@ -6,17 +6,21 @@ uses
   Data.DB,
   SqlExpr,
   System.Classes,
-  Model.Contracts.Connection4D;
+  Model.Connection.Core.Connection4D,
+  Model.Contracts.Access.Connection4D;
 
 type
 
-  TModelQueryConnection4D = class(TInterfacedObject, IModelQueryConnection4D)
+  TModelQueryDbExpressConnection4D = class(TConnectionCore4D,
+    IModelQueryConnection4D)
   private
+    [weak]
+    FConn: IConnectionDbExpress;
     FQuery: TSQLQuery;
   public
-    constructor Create(AConn: IModelConnection4D);
+    constructor Create(AConn: IConnectionDbExpress);
     destructor Destroy; override;
-    class function New(AConn: IModelConnection4D): IModelQueryConnection4D;
+    class function New(AConn: IConnectionDbExpress): IModelQueryConnection4D;
     function Close: IModelQueryConnection4D;
     function DataSet: TDataSet;
     function Add(AValue: String): IModelQueryConnection4D; overload;
@@ -27,58 +31,63 @@ type
 
 implementation
 
-{ TModelQueryConnection4D }
+{ TModelQueryDbExpressConnection4D }
 
-function TModelQueryConnection4D.Add(AValue: String): IModelQueryConnection4D;
+function TModelQueryDbExpressConnection4D.Add(AValue: String)
+  : IModelQueryConnection4D;
 begin
   Result := Self;
   FQuery.SQL.Add(AValue);
 end;
 
-function TModelQueryConnection4D.Add(AValue: TStrings): IModelQueryConnection4D;
+function TModelQueryDbExpressConnection4D.Add(AValue: TStrings)
+  : IModelQueryConnection4D;
 begin
   Result := Self;
   FQuery.SQL.Clear;
   FQuery.SQL.AddStrings(AValue);
 end;
 
-function TModelQueryConnection4D.Add(AValue: TStream): IModelQueryConnection4D;
+function TModelQueryDbExpressConnection4D.Add(AValue: TStream)
+  : IModelQueryConnection4D;
 begin
   Result := Self;
   FQuery.SQL.Clear;
   FQuery.SQL.LoadFromStream(AValue);
 end;
 
-function TModelQueryConnection4D.Close: IModelQueryConnection4D;
+function TModelQueryDbExpressConnection4D.Close: IModelQueryConnection4D;
 begin
   Result := Self;
   FQuery.Close;
 end;
 
-constructor TModelQueryConnection4D.Create(AConn: IModelConnection4D);
+constructor TModelQueryDbExpressConnection4D.Create
+  (AConn: IConnectionDbExpress);
 begin
+  FConn := AConn;
   FQuery := TSQLQuery.Create(nil);
-  FQuery.SQLConnection := (AConn.Connection as TSQLConnection);
+  FQuery.SQLConnection := (FConn.Connection as TSQLConnection);
 end;
 
-function TModelQueryConnection4D.DataSet: TDataSet;
+function TModelQueryDbExpressConnection4D.DataSet: TDataSet;
 begin
   Result := FQuery;
 end;
 
-destructor TModelQueryConnection4D.Destroy;
+destructor TModelQueryDbExpressConnection4D.Destroy;
 begin
   FQuery.Free;
   inherited;
 end;
 
-class function TModelQueryConnection4D.New(AConn: IModelConnection4D)
+class function TModelQueryDbExpressConnection4D.New(AConn: IConnectionDbExpress)
   : IModelQueryConnection4D;
 begin
   Result := Self.Create(AConn);
 end;
 
-function TModelQueryConnection4D.Open: IModelQueryConnection4D;
+function TModelQueryDbExpressConnection4D.Open: IModelQueryConnection4D;
 begin
   Result := Self;
   FQuery.Open;

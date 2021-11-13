@@ -3,7 +3,8 @@ unit DTO.Industrias;
 interface
 
 uses
-  Types.Attributes.DTO4Delphi, Types.Enums.DTO4D;
+  Types.Attributes.DTO4D,
+  Types.Enums.DTO4D;
 {$M+}
 
 type
@@ -51,7 +52,8 @@ type
 
 implementation
 
-uses Core.Registry.DTO4D;
+uses
+  Core.Registry.DTO4D;
 { TDTOIndustrias }
 
 function TDTOIndustrias.Codigo: Integer;

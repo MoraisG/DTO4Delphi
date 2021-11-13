@@ -83,7 +83,7 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_UnitSearchPath>../../src/core;../../src/types;../../src/types/attributes;../../src/rtti;../../src/rtti/impl;../../src/core/impl;../../src/core/impl/params;../../src/registry;../../src/types/enums;../../src/types/enums/helpers;../../src/model;../../src/model/impl;../../src/model/impl/dbexpress;../../src/rtti/impl/strategy;../../;../../src/types/exceptions;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>../../src/core;../../src/types;../../src/types/attributes;../../src/rtti;../../src/rtti/impl;../../src/core/impl;../../src/core/impl/params;../../src/registry;../../src/types/enums;../../src/types/enums/helpers;../../src/model;../../src/model/impl;../../src/model/impl/core;../../src/model/impl/dbexpress;../../src/model/impl/dbexpress/databases;../../src/rtti/impl/strategy;../../;../../src/types/exceptions;../../src/types/commons;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>

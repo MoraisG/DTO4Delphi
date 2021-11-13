@@ -5,9 +5,9 @@ unit RTTI.Strategy.QueryByResource.DTO4D;
 interface
 
 uses
-  Model.Contracts.Connection4D,
-  RTTI.Contracts.DT4Delphi,
-  Core.Contracts.DTO4Delphi;
+  Model.Contracts.Access.Connection4D,
+  RTTI.Contracts.DTO4D,
+  Core.Contracts.DTO4D;
 
 type
 
@@ -28,19 +28,13 @@ implementation
 
 uses
   Winapi.Windows,
-  System.Classes
-{$IFDEF DBEXPRESS}
-    , Model.Query.Dbexpress.Connection4D
-{$ENDIF}
-    ;
+  System.Classes;
 { TQueryResourceDTO4Delphi<T> }
 
 constructor TQueryResourceDTO4Delphi<T>.Create(AValue: IDTO4Delphi<T>);
 begin
   FCoreDTO := AValue;
-{$IFDEF DBEXPRESS}
-  FQuery := TModelQueryConnection4D.New(nil);
-{$ENDIF}
+  FQuery := nil;
 end;
 
 destructor TQueryResourceDTO4Delphi<T>.Destroy;
@@ -59,7 +53,6 @@ var
   LResourceStream: TResourceStream;
 begin
   Result := Self;
-  Exit;
   LResourceStream := TResourceStream.Create(HInstance,
     FCoreDTO.Params.GetNameQuery, RT_RCDATA);
   try

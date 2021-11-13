@@ -2,7 +2,10 @@ unit DTO.Empresa;
 
 interface
 
-uses DTO.Contracts.Samples, DTO.Pessoa, Types.Attributes.DTO4Delphi;
+uses
+  DTO.Contracts.Samples,
+  DTO.Pessoa,
+  Types.Attributes.DTO4D;
 
 type
 {$M+}

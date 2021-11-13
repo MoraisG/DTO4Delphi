@@ -1,8 +1,9 @@
-unit Types.Attributes.DTO4Delphi;
+unit Types.Attributes.DTO4D;
 
 interface
 
-uses Types.Enums.DTO4D;
+uses
+  Types.Enums.DTO4D;
 
 type
 {$M+}

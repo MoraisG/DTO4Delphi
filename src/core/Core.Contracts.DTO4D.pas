@@ -1,4 +1,4 @@
-unit Core.Contracts.DTO4Delphi;
+unit Core.Contracts.DTO4D;
 
 interface
 

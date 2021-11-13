@@ -30,9 +30,20 @@
     <Transaction>2021/11/08 22:24:33.000.254,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas</Transaction>
     <Transaction>2021/11/08 22:25:08.000.147,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
     <Transaction>2021/11/08 22:25:37.000.915,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas</Transaction>
-    <Transaction>2021/11/12 21:40:50.072,=dbexpress.dcp</Transaction>
-    <Transaction>2021/11/12 21:40:50.072,=DbxCommonDriver.dcp</Transaction>
-    <Transaction>2021/11/12 21:55:54.526,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/11/12 21:56:24.484,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\exceptions\Types.Exceptions.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/12 21:40:50.000.072,=dbexpress.dcp</Transaction>
+    <Transaction>2021/11/12 21:40:50.000.072,=DbxCommonDriver.dcp</Transaction>
+    <Transaction>2021/11/12 21:55:54.000.526,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/12 21:56:24.000.484,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\exceptions\Types.Exceptions.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/13 13:00:45.000.642,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\Types.Enums.DTO4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\Types.Enums.DTO4Delphi.pas</Transaction>
+    <Transaction>2021/11/13 13:01:01.000.569,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\Types.Enums.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\enums\Types.Enums.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:01:07.000.274,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\attributes\Types.Attributes.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\attributes\Types.Attributes.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:01:22.000.389,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\RTTI.Contracts.DT4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\RTTI.Contracts.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:01:31.000.242,D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\RTTI.Manager.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\rtti\impl\RTTI.Manager.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:01:44.000.565,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\Core.Manager.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\impl\Core.Manager.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:01:49.000.334,D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\Core.Contracts.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\core\Core.Contracts.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:02:46.000.551,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\exceptions\Types.Exceptions.DTO4Delphi.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\exceptions\Types.Exceptions.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 13:14:47.000.043,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/13 13:15:16.000.763,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\commons\Types.Commons.DTO4D.pas</Transaction>
+    <Transaction>2021/11/13 18:21:04.970,D:\Desenvolvimento\Fontes\DTO4Delphi\src\types\commons\Types.Commons.DTO4D.pas=</Transaction>
   </Transactions>
 </BorlandProject>

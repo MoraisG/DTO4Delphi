@@ -1,4 +1,4 @@
-unit RTTI.Contracts.DT4Delphi;
+unit RTTI.Contracts.DTO4D;
 
 interface
 

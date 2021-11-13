@@ -3,7 +3,7 @@ unit Core.Params.Manager.DTO4Delphi;
 interface
 
 uses
-  Core.Contracts.DTO4Delphi,
+  Core.Contracts.DTO4D,
   Data.DB;
 
 type

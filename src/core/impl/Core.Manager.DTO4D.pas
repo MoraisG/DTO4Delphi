@@ -1,10 +1,10 @@
-unit Core.Manager.DTO4Delphi;
+unit Core.Manager.DTO4D;
 
 interface
 
 uses
   System.Generics.Collections,
-  Core.Contracts.DTO4Delphi;
+  Core.Contracts.DTO4D;
 
 type
 
@@ -35,7 +35,7 @@ implementation
 { TCoreManagerDTO4Delphi<T> }
 
 uses
-  RTTI.Manager.DTO4Delphi,
+  RTTI.Manager.DTO4D,
   Core.Params.Manager.DTO4Delphi;
 
 function TCoreManagerDTO4Delphi<T>.Bind: IDTO4Delphi<T>;

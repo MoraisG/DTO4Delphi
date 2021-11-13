@@ -35,6 +35,17 @@ requires
 
 contains
   Model.Contracts.Connection4D in 'src\model\Model.Contracts.Connection4D.pas',
-  Model.Query.DbExpress.Connection4D in 'src\model\impl\dbExpress\Model.Query.DbExpress.Connection4D.pas';
+  Model.Query.DbExpress.Connection4D in 'src\model\impl\dbExpress\Model.Query.DbExpress.Connection4D.pas',
+  Model.Contracts.Access.Connection4D in 'src\model\Model.Contracts.Access.Connection4D.pas',
+  Model.Connection.Core.Connection4D in 'src\model\impl\Core\Model.Connection.Core.Connection4D.pas',
+  RTTI.Contracts.Connection4D in 'src\rtti\RTTI.Contracts.Connection4D.pas',
+  Model.DbExpress.Oracle.Connection4D in 'src\model\impl\dbExpress\databases\Model.DbExpress.Oracle.Connection4D.pas',
+  Model.DbExpress.Connection4D in 'src\model\impl\dbExpress\Model.DbExpress.Connection4D.pas',
+  RTTI.Manager.Connection4D in 'src\rtti\impl\RTTI.Manager.Connection4D.pas',
+  Pool.Connection.Connection4D in 'src\pool\Pool.Connection.Connection4D.pas',
+  Types.Attributes.Connection4D in 'src\types\attributes\Types.Attributes.Connection4D.pas',
+  Types.Enums.Connection4D in 'src\types\enums\Types.Enums.Connection4D.pas',
+  Types.Commons.Connection4D in 'src\types\commons\Types.Commons.Connection4D.pas',
+  Types.Enums.Helpers.Connection4D in 'src\types\enums\helpers\Types.Enums.Helpers.Connection4D.pas';
 
 end.

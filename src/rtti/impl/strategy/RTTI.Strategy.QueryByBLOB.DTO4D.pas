@@ -4,8 +4,8 @@ interface
 
 uses
   Data.DB,
-  RTTI.Contracts.DT4Delphi,
-  Core.Contracts.DTO4Delphi;
+  RTTI.Contracts.DTO4D,
+  Core.Contracts.DTO4D;
 
 type
 

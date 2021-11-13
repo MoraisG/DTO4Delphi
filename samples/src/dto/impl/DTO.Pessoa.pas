@@ -4,7 +4,7 @@ interface
 
 uses
   DTO.Contracts.Samples,
-  Types.Attributes.DTO4Delphi;
+  Types.Attributes.DTO4D;
 
 type
 {$M+}

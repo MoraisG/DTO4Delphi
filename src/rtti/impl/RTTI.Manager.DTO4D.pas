@@ -1,8 +1,11 @@
-unit RTTI.Manager.DTO4Delphi;
+unit RTTI.Manager.DTO4D;
 
 interface
 
-uses Core.Contracts.DTO4Delphi, RTTI.Contracts.DT4Delphi, System.RTTI;
+uses
+  Core.Contracts.DTO4D,
+  RTTI.Contracts.DTO4D,
+  System.RTTI;
 
 type
 
@@ -30,11 +33,11 @@ implementation
 
 uses
   System.SysUtils,
-  Types.Attributes.DTO4Delphi,
+  Types.Attributes.DTO4D,
   Data.DB,
   Core.Registry.DTO4D,
   Types.Enums.Helpers.DTO4D,
-  Types.Exceptions.DTO4Delphi;
+  Types.Exceptions.DTO4D;
 
 function TRTTIManager4DTODelphi<T>.AsInstace: T;
 var

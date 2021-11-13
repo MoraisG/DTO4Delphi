@@ -8,7 +8,8 @@ uses
   DTO.Contracts.Samples in 'dto\DTO.Contracts.Samples.pas',
   DTO.Pessoa in 'dto\impl\DTO.Pessoa.pas',
   DTO.Empresa in 'dto\impl\DTO.Empresa.pas',
-  DTO.Industrias in 'dto\DTO.Industrias.pas';
+  DTO.Industrias in 'dto\DTO.Industrias.pas',
+  Model.DbExpress.Connection4D;
 
 {$R *.res}
 

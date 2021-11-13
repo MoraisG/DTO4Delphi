@@ -15,7 +15,7 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
-    Left = 104
+    Left = 8
     Top = 8
     Width = 193
     Height = 57
@@ -24,8 +24,8 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 104
-    Top = 80
+    Left = 8
+    Top = 88
     Width = 193
     Height = 57
     Caption = 'DataSet to List'
@@ -42,13 +42,21 @@ object Form1: TForm1
     TabOrder = 2
   end
   object btDataSetToObj: TButton
-    Left = 104
-    Top = 152
+    Left = 8
+    Top = 160
     Width = 193
     Height = 57
     Caption = 'DataSet to Object'
     TabOrder = 3
     OnClick = btDataSetToObjClick
+  end
+  object Button3: TButton
+    Left = 207
+    Top = 8
+    Width = 195
+    Height = 57
+    Caption = 'Heranca'
+    TabOrder = 4
   end
   object cdsIndustrias: TClientDataSet
     PersistDataPacket.Data = {

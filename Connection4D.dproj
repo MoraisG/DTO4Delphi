@@ -107,6 +107,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
+        <DCC_UnitSearchPath>src\types\enums;src\types\enums\helpers;src\types\attributes;src\types\commons;src\registry;src\rtti;src\core;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -124,6 +127,17 @@
         <DCCReference Include="dbexpress.dcp"/>
         <DCCReference Include="src\model\Model.Contracts.Connection4D.pas"/>
         <DCCReference Include="src\model\impl\dbExpress\Model.Query.DbExpress.Connection4D.pas"/>
+        <DCCReference Include="src\model\Model.Contracts.Access.Connection4D.pas"/>
+        <DCCReference Include="src\model\impl\Core\Model.Connection.Core.Connection4D.pas"/>
+        <DCCReference Include="src\rtti\RTTI.Contracts.Connection4D.pas"/>
+        <DCCReference Include="src\model\impl\dbExpress\databases\Model.DbExpress.Oracle.Connection4D.pas"/>
+        <DCCReference Include="src\model\impl\dbExpress\Model.DbExpress.Connection4D.pas"/>
+        <DCCReference Include="src\rtti\impl\RTTI.Manager.Connection4D.pas"/>
+        <DCCReference Include="src\pool\Pool.Connection.Connection4D.pas"/>
+        <DCCReference Include="src\types\attributes\Types.Attributes.Connection4D.pas"/>
+        <DCCReference Include="src\types\enums\Types.Enums.Connection4D.pas"/>
+        <DCCReference Include="src\types\commons\Types.Commons.Connection4D.pas"/>
+        <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.Connection4D.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -144,6 +158,10 @@
                 <Source>
                     <Source Name="MainSource">Connection4D.dpk</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">

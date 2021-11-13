@@ -1,13 +1,20 @@
 unit Main;
 
 interface
+
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
   Vcl.StdCtrls,
   DTO.Contracts.Samples,
-  Core.Contracts.DTO4Delphi,
+  Core.Contracts.DTO4D,
   Data.DB,
   Datasnap.DBClient,
   DTO.Industrias;
@@ -23,6 +30,7 @@ type
     Button2: TButton;
     Memo1: TMemo;
     btDataSetToObj: TButton;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -40,7 +48,13 @@ var
 implementation
 
 uses
-  Core.Manager.DTO4Delphi;
+  System.RTTI,
+  Types.Attributes.DTO4D,
+  Core.Registry.DTO4D,
+  Core.Manager.DTO4D,
+  Types.Enums.DTO4D,
+  Types.Enums.Helpers.DTO4D,
+  Model.Contracts.Access.Connection4D;
 
 {$R *.dfm}
 
