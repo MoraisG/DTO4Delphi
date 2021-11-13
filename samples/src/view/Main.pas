@@ -1,7 +1,5 @@
 unit Main;
 
-{$I config.inc}
-
 interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
@@ -11,7 +9,8 @@ uses
   DTO.Contracts.Samples,
   Core.Contracts.DTO4Delphi,
   Data.DB,
-  Datasnap.DBClient, DTO.Industrias;
+  Datasnap.DBClient,
+  DTO.Industrias;
 
 type
   TForm1 = class(TForm)
@@ -30,7 +29,7 @@ type
     procedure btDataSetToObjClick(Sender: TObject);
   private
     { Private declarations }
-    FPessoaDTO: ICoreDTO4Delphi<IPessoa>;
+    FPessoaDTO: IDTO4Delphi<IPessoa>;
   public
     { Public declarations }
   end;
@@ -64,7 +63,7 @@ end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 var
-  LIndustriaDTO: ICoreDTO4Delphi<IDTOIndustrias>;
+  LIndustriaDTO: IDTO4Delphi<IDTOIndustrias>;
   LIndustria: IDTOIndustrias;
 begin
   Memo1.Lines.Clear;

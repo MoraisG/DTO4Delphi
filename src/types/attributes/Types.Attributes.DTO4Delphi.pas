@@ -34,6 +34,12 @@ type
     property QueryType: TEnumQuery read FQueryType write SetQueryType;
   end;
 
+  Getter = class(TCustomAttribute)
+  end;
+
+  Setter = class(TCustomAttribute)
+  end;
+
 implementation
 
 { Campo }

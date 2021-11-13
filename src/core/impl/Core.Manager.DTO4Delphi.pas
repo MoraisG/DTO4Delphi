@@ -9,21 +9,25 @@ uses
 type
 
   TCoreManagerDTO4Delphi<T: IInterface> = class(TInterfacedObject,
-    ICoreDTO4Delphi<T>)
+    IDTO4Delphi<T>)
   private
     FListObjs: TList<T>;
     FOwnerList: Boolean;
-    FParams: ICoreParams4DTODelphi<T>;
+  protected
+    FParams: IParams4DTODelphi<T>;
   public
     constructor Create;
     destructor Destroy; override;
-    class function New: ICoreDTO4Delphi<T>;
-    function Bind: ICoreDTO4Delphi<T>;
+    class function New: IDTO4Delphi<T>;
+    function Bind: IDTO4Delphi<T>;
     function DTO: T;
     function DataSetToObject: T;
     function DataSetToList(const AOwnwer: Boolean = true): TList<T>;
-    function GetList : TList<T>;
-    function Params: ICoreParams4DTODelphi<T>;
+    function Delete: IDTO4Delphi<T>;
+    function GetList: TList<T>;
+    function Insert(AObject: T): IDTO4Delphi<T>;
+    function Params: IParams4DTODelphi<T>;
+    function Update: IDTO4Delphi<T>;
   end;
 
 implementation
@@ -34,7 +38,7 @@ uses
   RTTI.Manager.DTO4Delphi,
   Core.Params.Manager.DTO4Delphi;
 
-function TCoreManagerDTO4Delphi<T>.Bind: ICoreDTO4Delphi<T>;
+function TCoreManagerDTO4Delphi<T>.Bind: IDTO4Delphi<T>;
 begin
   Result := Self;
 end;
@@ -58,6 +62,11 @@ begin
   Result := TRTTIManager4DTODelphi<T>.New(Self).DataSetToObject;
 end;
 
+function TCoreManagerDTO4Delphi<T>.Delete: IDTO4Delphi<T>;
+begin
+  Result := Self;
+end;
+
 destructor TCoreManagerDTO4Delphi<T>.Destroy;
 begin
   if FOwnerList then
@@ -75,16 +84,28 @@ begin
   Result := FListObjs;
 end;
 
-class function TCoreManagerDTO4Delphi<T>.New: ICoreDTO4Delphi<T>;
+function TCoreManagerDTO4Delphi<T>.Insert(AObject: T): IDTO4Delphi<T>;
+begin
+  Result := Self;
+  Self.Params.DTO(AObject);
+  TRTTIManager4DTODelphi<T>.New(Self).Insert;
+end;
+
+class function TCoreManagerDTO4Delphi<T>.New: IDTO4Delphi<T>;
 begin
   Result := Self.Create;
 end;
 
-function TCoreManagerDTO4Delphi<T>.Params: ICoreParams4DTODelphi<T>;
+function TCoreManagerDTO4Delphi<T>.Params: IParams4DTODelphi<T>;
 begin
   if FParams = nil then
     FParams := TCoreParamsDTO4Delphi<T>.New(Self);
   Result := FParams;
+end;
+
+function TCoreManagerDTO4Delphi<T>.Update: IDTO4Delphi<T>;
+begin
+  Result := Self;
 end;
 
 end.

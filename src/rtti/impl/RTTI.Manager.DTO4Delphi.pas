@@ -10,17 +10,18 @@ type
     IRTTIManager<T>)
   private
     [weak]
-    FParent: ICoreDTO4Delphi<T>;
+    FParent: IDTO4Delphi<T>;
     FContext: TRttiContext;
   public
-    constructor Create(AParent: ICoreDTO4Delphi<T>);
+    constructor Create(AParent: IDTO4Delphi<T>);
     destructor Destroy; override;
-    class function New(AParent: ICoreDTO4Delphi<T>): IRTTIManager<T>;
+    class function New(AParent: IDTO4Delphi<T>): IRTTIManager<T>;
     function AsInstace: T;
     function Bind: IRTTIManager<T>;
     function DataSetToObject: T;
     function DataSetToList: IRTTIManager<T>;
     function GetClass: TClass;
+    function Insert: IRTTIManager<T>;
   end;
 
 implementation
@@ -32,7 +33,8 @@ uses
   Types.Attributes.DTO4Delphi,
   Data.DB,
   Core.Registry.DTO4D,
-  Types.Enums.Helpers.DTO4D;
+  Types.Enums.Helpers.DTO4D,
+  Types.Exceptions.DTO4Delphi;
 
 function TRTTIManager4DTODelphi<T>.AsInstace: T;
 var
@@ -56,7 +58,7 @@ begin
   Result := Self;
 end;
 
-constructor TRTTIManager4DTODelphi<T>.Create(AParent: ICoreDTO4Delphi<T>);
+constructor TRTTIManager4DTODelphi<T>.Create(AParent: IDTO4Delphi<T>);
 begin
   FParent := AParent;
   FContext := TRttiContext.Create;
@@ -84,10 +86,15 @@ begin
     begin
       for LMethods in LInterface.GetDeclaredMethods do
         for LAttributes in LMethods.GetAttributes do
+        begin
           if LAttributes is Campo then
           begin
             LField := FParent.Params.GetDataSet.FieldByName
               (Campo(LAttributes).Field);
+          end;
+
+          if LAttributes is Setter then
+          begin
             case LField.DataType of
               ftString, ftWideString, ftWideMemo:
                 LMethods.Invoke(TValue.From<T>(FParent.GetList.Last),
@@ -106,6 +113,7 @@ begin
                   [LField.AsDateTime]);
             end;
           end;
+        end;
     end;
     FParent.Params.GetDataSet.Next;
   end;
@@ -143,10 +151,15 @@ begin
 
     for LMethods in LInterface.GetDeclaredMethods do
       for LAttributes in LMethods.GetAttributes do
+      begin
         if LAttributes is Campo then
         begin
           LField := FParent.Params.GetDataSet.FieldByName
             (Campo(LAttributes).Field);
+        end;
+
+        if LAttributes is Setter then
+        begin
           case LField.DataType of
             ftString, ftWideString, ftWideMemo, ftBlob:
               LMethods.Invoke(TValue.From<T>(Result), [LField.AsString]);
@@ -160,6 +173,7 @@ begin
               LMethods.Invoke(TValue.From<T>(Result), [LField.AsDateTime]);
           end;
         end;
+      end;
   end;
 end;
 
@@ -174,7 +188,72 @@ begin
   Result := TRegisterClassDTO4D.GetClass<T>;
 end;
 
-class function TRTTIManager4DTODelphi<T>.New(AParent: ICoreDTO4Delphi<T>)
+function TRTTIManager4DTODelphi<T>.Insert: IRTTIManager<T>;
+var
+  LType: TRttiType;
+  LInstance: TRttiInstanceType;
+  LInterface: TRttiInterfaceType;
+  LMethods: TRttiMethod;
+  LAttributes: TCustomAttribute;
+  LField: TField;
+begin
+  Result := Self;
+  LType := FContext.GetType(GetClass);
+
+  LInstance := LType.AsInstance;
+  try
+    FParent.Params.GetDataSet.Insert;
+    for LInterface in LInstance.GetDeclaredImplementedInterfaces do
+      for LMethods in LInterface.GetMethods do
+        for LAttributes in LMethods.GetAttributes do
+        begin
+
+          if LAttributes is Campo then
+            LField := FParent.Params.GetDataSet.FieldByName
+              (Campo(LAttributes).Field);
+
+          if LAttributes is Getter then
+          begin
+            case LField.DataType of
+
+              ftString, ftWideString, ftWideMemo, ftBlob:
+                LField.AsString :=
+                  LMethods.Invoke(TValue.From<T>(FParent.Params.DTO), [])
+                  .AsType<String>;
+
+              ftSmallint, ftInteger, ftLongWord, ftShortint, ftWord:
+                LField.AsInteger :=
+                  LMethods.Invoke(TValue.From<T>(FParent.Params.DTO), [])
+                  .AsType<Integer>;
+
+              ftBoolean:
+                LField.AsBoolean :=
+                  LMethods.Invoke(TValue.From<T>(FParent.Params.DTO), [])
+                  .AsType<Boolean>;
+
+              ftFloat, ftCurrency, ftBCD, ftExtended, ftFMTBcd:
+                LField.AsFloat :=
+                  LMethods.Invoke(TValue.From<T>(FParent.Params.DTO), [])
+                  .AsType<Double>;
+
+              ftDate, ftTime, ftDateTime, ftTimeStamp:
+                LField.AsDateTime :=
+                  LMethods.Invoke(TValue.From<T>(FParent.Params.DTO), [])
+                  .AsType<TDateTime>;
+            end;
+          end;
+        end;
+
+    FParent.Params.GetDataSet.Post;
+  except
+    on E: Exception do
+    begin
+      raise EExceptionDTODeserialize.Create();
+    end;
+  end;
+end;
+
+class function TRTTIManager4DTODelphi<T>.New(AParent: IDTO4Delphi<T>)
   : IRTTIManager<T>;
 begin
   Result := Self.Create(AParent);

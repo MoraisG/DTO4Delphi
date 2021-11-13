@@ -7,9 +7,10 @@ type
   IRTTIManager<T: IInterface> = interface
     ['{B6BB910D-390F-46DB-8F94-4EC0B445FE63}']
     function AsInstace: T;
+    function Bind: IRTTIManager<T>;
     function DataSetToObject: T;
     function DataSetToList: IRTTIManager<T>;
-    function Bind: IRTTIManager<T>;
+    function Insert : IRTTIManager<T>;
   end;
 
   IRTTIDataBase<T: IInterface> = interface

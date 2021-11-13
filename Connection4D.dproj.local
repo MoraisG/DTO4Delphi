@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2021/11/10 21:46:47.024,=rtl.dcp</Transaction>
-    <Transaction>2021/11/10 21:48:26.287,D:\Desenvolvimento\Fontes\DTO4Delphi\Connection4D.dproj=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
-    <Transaction>2021/11/10 21:48:41.180,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/11/10 21:49:07.950,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/11/10 22:00:00.330,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas=</Transaction>
-    <Transaction>2021/11/10 22:00:35.948,=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas</Transaction>
-    <Transaction>2021/11/10 22:04:44.048,=dbrtl.dcp</Transaction>
-    <Transaction>2021/11/10 22:12:05.030,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/11/10 22:12:22.954,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\Model.Query.Connection4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
-    <Transaction>2021/11/10 22:13:42.375,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\dbExpress\Model.Query.DbExpress.Connection4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\Model.Query.Connection4D.pas</Transaction>
-    <Transaction>2021/11/10 22:24:17.643,=DbxCommonDriver.dcp</Transaction>
-    <Transaction>2021/11/10 22:24:17.674,=dbexpress.dcp</Transaction>
+	<Transactions>
+    <Transaction>2021/11/10 21:46:47.000.024,=rtl.dcp</Transaction>
+    <Transaction>2021/11/10 21:48:26.000.287,C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj=D:\Desenvolvimento\Fontes\DTO4Delphi\Connection4D.dproj</Transaction>
+    <Transaction>2021/11/10 21:48:41.000.180,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/10 21:49:07.000.950,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas</Transaction>
+    <Transaction>2021/11/10 22:00:00.000.330,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas=</Transaction>
+    <Transaction>2021/11/10 22:00:35.000.948,=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\Model.Contracts.Connection4D.pas</Transaction>
+    <Transaction>2021/11/10 22:04:44.000.048,=dbrtl.dcp</Transaction>
+    <Transaction>2021/11/10 22:12:05.000.030,=D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas</Transaction>
+    <Transaction>2021/11/10 22:12:22.000.954,D:\Desenvolvimento\Fontes\DTO4Delphi\Unit1.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\Model.Query.Connection4D.pas</Transaction>
+    <Transaction>2021/11/10 22:13:42.000.375,D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\Model.Query.Connection4D.pas=D:\Desenvolvimento\Fontes\DTO4Delphi\src\model\impl\dbExpress\Model.Query.DbExpress.Connection4D.pas</Transaction>
+    <Transaction>2021/11/10 22:24:17.000.674,=dbexpress.dcp</Transaction>
+    <Transaction>2021/11/10 22:24:17.000.643,=DbxCommonDriver.dcp</Transaction>
   </Transactions>
 </BorlandProject>

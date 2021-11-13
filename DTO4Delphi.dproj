@@ -114,7 +114,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
-        <DCC_UnitSearchPath>src\model;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -134,6 +133,8 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="dbrtl.dcp"/>
+        <DCCReference Include="DbxCommonDriver.dcp"/>
+        <DCCReference Include="dbexpress.dcp"/>
         <DCCReference Include="src\core\Core.Contracts.DTO4Delphi.pas"/>
         <DCCReference Include="src\rtti\RTTI.Contracts.DT4Delphi.pas"/>
         <DCCReference Include="src\types\attributes\Types.Attributes.DTO4Delphi.pas"/>
@@ -145,6 +146,7 @@
         <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByResource.DTO4D.pas"/>
         <DCCReference Include="src\rtti\impl\strategy\RTTI.Strategy.QueryByBLOB.DTO4D.pas"/>
         <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.DTO4D.pas"/>
+        <DCCReference Include="src\types\exceptions\Types.Exceptions.DTO4Delphi.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -7,7 +7,7 @@ uses
 
 type
   THelperEnumQuery = record helper for TEnumQuery
-    function Query<T: IInterface>(AValue: ICoreDTO4Delphi<T>): IRTTIDataBase<T>;
+    function Query<T: IInterface>(AValue: IDTO4Delphi<T>): IRTTIDataBase<T>;
   end;
 
 implementation
@@ -18,7 +18,7 @@ uses
   RTTI.Strategy.QueryByBLOB.DTO4D,
   RTTI.Strategy.QueryByResource.DTO4D;
 
-function THelperEnumQuery.Query<T>(AValue: ICoreDTO4Delphi<T>)
+function THelperEnumQuery.Query<T>(AValue: IDTO4Delphi<T>)
   : IRTTIDataBase<T>;
 begin
   case self of

@@ -9,27 +9,30 @@ uses
 type
 
   TCoreParamsDTO4Delphi<T: IInterface> = class(TInterfacedObject,
-    ICoreParams4DTODelphi<T>)
+    IParams4DTODelphi<T>)
   private
     [weak]
-    FParent: ICoreDTO4Delphi<T>;
+    FParent: IDTO4Delphi<T>;
+    [weak]
+    FDTO: T;
     FClass: TClass;
     FDataSource: TDataSource;
     FNameQuery: String;
   public
-    constructor Create(AParent: ICoreDTO4Delphi<T>);
+    constructor Create(AParent: IDTO4Delphi<T>);
     destructor Destroy; override;
-    class function New(AParent: ICoreDTO4Delphi<T>): ICoreParams4DTODelphi<T>;
-    function ClassType(AValue: TClass): ICoreParams4DTODelphi<T>; overload;
+    class function New(AParent: IDTO4Delphi<T>): IParams4DTODelphi<T>;
+    function ClassType(AValue: TClass): IParams4DTODelphi<T>; overload;
       deprecated;
     function ClassType: TClass; overload; deprecated;
-    function DataSet(ADataSource: TDataSource)
-      : ICoreParams4DTODelphi<T>; overload;
-    function DataSet(ADataSet: TDataSet): ICoreParams4DTODelphi<T>; overload;
+    function DataSet(ADataSource: TDataSource): IParams4DTODelphi<T>; overload;
+    function DataSet(ADataSet: TDataSet): IParams4DTODelphi<T>; overload;
+    function DTO(AValue: T): IParams4DTODelphi<T>; overload;
+    function DTO: T; overload;
     function GetDataSet: TDataSet; overload;
     function GetNameQuery: String;
-    function Return: ICoreDTO4Delphi<T>;
-    function SetNameQuery(AValue: String): ICoreParams4DTODelphi<T>;
+    function Return: IDTO4Delphi<T>;
+    function SetNameQuery(AValue: String): IParams4DTODelphi<T>;
   end;
 
 implementation
@@ -37,7 +40,7 @@ implementation
 { TCoreParamsDTO4Delphi<T> }
 
 function TCoreParamsDTO4Delphi<T>.ClassType(AValue: TClass)
-  : ICoreParams4DTODelphi<T>;
+  : IParams4DTODelphi<T>;
 begin
   Result := Self;
   FClass := AValue;
@@ -48,19 +51,19 @@ begin
   Result := FClass;
 end;
 
-function TCoreParamsDTO4Delphi<T>.Return: ICoreDTO4Delphi<T>;
+function TCoreParamsDTO4Delphi<T>.Return: IDTO4Delphi<T>;
 begin
   Result := FParent;
 end;
 
 function TCoreParamsDTO4Delphi<T>.SetNameQuery(AValue: String)
-  : ICoreParams4DTODelphi<T>;
+  : IParams4DTODelphi<T>;
 begin
   Result := Self;
   FNameQuery := AValue;
 end;
 
-constructor TCoreParamsDTO4Delphi<T>.Create(AParent: ICoreDTO4Delphi<T>);
+constructor TCoreParamsDTO4Delphi<T>.Create(AParent: IDTO4Delphi<T>);
 begin
   FParent := AParent;
   FDataSource := TDataSource.Create(nil);
@@ -77,14 +80,14 @@ begin
 end;
 
 function TCoreParamsDTO4Delphi<T>.DataSet(ADataSource: TDataSource)
-  : ICoreParams4DTODelphi<T>;
+  : IParams4DTODelphi<T>;
 begin
   Result := Self;
   FDataSource.DataSet := ADataSource.DataSet;
 end;
 
 function TCoreParamsDTO4Delphi<T>.DataSet(ADataSet: TDataSet)
-  : ICoreParams4DTODelphi<T>;
+  : IParams4DTODelphi<T>;
 begin
   Result := Self;
   FDataSource.DataSet := ADataSet;
@@ -96,8 +99,19 @@ begin
   inherited;
 end;
 
-class function TCoreParamsDTO4Delphi<T>.New(AParent: ICoreDTO4Delphi<T>)
-  : ICoreParams4DTODelphi<T>;
+function TCoreParamsDTO4Delphi<T>.DTO: T;
+begin
+  Result := FDTO;
+end;
+
+function TCoreParamsDTO4Delphi<T>.DTO(AValue: T): IParams4DTODelphi<T>;
+begin
+  Result := Self;
+  FDTO := AValue;
+end;
+
+class function TCoreParamsDTO4Delphi<T>.New(AParent: IDTO4Delphi<T>)
+  : IParams4DTODelphi<T>;
 begin
   Result := Self.Create(AParent);
 end;

@@ -11,17 +11,23 @@ type
   [Query('SEL_IND', tpQueryResource)]
   IDTOIndustrias = interface
     ['{C2C650C9-9D09-429C-A6EA-A9C0DFA5DA6B}']
-    [Campo('IND_CODE')]
+
+    [Campo('IND_CODE'), Setter]
     function SetCodigo(AValue: Integer): IDTOIndustrias;
 
-    [Campo('IND_NAME')]
+    [Campo('IND_NAME'), Setter]
     function SetNome(AValue: String): IDTOIndustrias;
 
-    [Campo('LONG_NAME')]
+    [Campo('LONG_NAME'), Setter]
     function SetNomeCompleto(AValue: String): IDTOIndustrias;
 
+    [Campo('IND_CODE'), Getter]
     function Codigo: Integer;
+
+    [Campo('IND_NAME'), Getter]
     function Nome: String;
+
+    [Campo('LONG_NAME'), Getter]
     function NomeCompleto: String;
   end;
 

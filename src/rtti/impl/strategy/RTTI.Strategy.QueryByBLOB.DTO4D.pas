@@ -13,11 +13,11 @@ type
     IRTTIDataBase<T>)
   private
     [Weak]
-    FCoreDTO: ICoreDTO4Delphi<T>;
+    FCoreDTO: IDTO4Delphi<T>;
   public
-    constructor Create(AValue: ICoreDTO4Delphi<T>);
+    constructor Create(AValue: IDTO4Delphi<T>);
     destructor Destroy; override;
-    class function New(AValue: ICoreDTO4Delphi<T>): IRTTIDataBase<T>;
+    class function New(AValue: IDTO4Delphi<T>): IRTTIDataBase<T>;
     function Query: IRTTIDataBase<T>;
   end;
 
@@ -25,7 +25,7 @@ implementation
 
 { TQueryBlobDTO4Delphi<T> }
 
-constructor TQueryBlobDTO4Delphi<T>.Create(AValue: ICoreDTO4Delphi<T>);
+constructor TQueryBlobDTO4Delphi<T>.Create(AValue: IDTO4Delphi<T>);
 begin
   FCoreDTO := AValue;
 end;
@@ -36,7 +36,7 @@ begin
   inherited;
 end;
 
-class function TQueryBlobDTO4Delphi<T>.New(AValue: ICoreDTO4Delphi<T>)
+class function TQueryBlobDTO4Delphi<T>.New(AValue: IDTO4Delphi<T>)
   : IRTTIDataBase<T>;
 begin
   Result := Self.Create(AValue);
