@@ -35,6 +35,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btDataSetToObjClick(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
     FPessoaDTO: IDTO4Delphi<IPessoa>;
@@ -90,6 +91,11 @@ begin
       [LIndustria.Codigo, LIndustria.Nome, LIndustria.NomeCompleto]));
   end;
 
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  ///
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

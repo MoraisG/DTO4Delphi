@@ -9,6 +9,7 @@ type
   IRTTIConnection4D<T: IInterface> = interface
     ['{19872C73-E9AE-4DFB-8577-FCF95676A67A}']
     function Connection: T;
+    function InfoDataAccess: IRTTIConnection4D<T>;
     function PoolConnection: IRTTIConnection4D<T>;
   end;
 

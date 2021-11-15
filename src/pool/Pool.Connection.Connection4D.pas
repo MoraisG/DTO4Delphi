@@ -12,12 +12,19 @@ type
     class var FPool: TList<T>;
   public
     class function Pool: TList<T>;
+    class constructor Create;
     class destructor Destroy;
   end;
 
 implementation
 
 { TPoolConnection<T> }
+
+class constructor TPoolConnection<T>.Create;
+begin
+  if FPool = nil then
+    FPool := TList<T>.Create;
+end;
 
 class destructor TPoolConnection<T>.Destroy;
 begin
@@ -27,8 +34,7 @@ end;
 
 class function TPoolConnection<T>.Pool: TList<T>;
 begin
-  if FPool = nil then
-    FPool := TList<T>.Create;
+  Result := FPool;
 end;
 
 end.

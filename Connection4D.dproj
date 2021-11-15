@@ -138,6 +138,8 @@
         <DCCReference Include="src\types\enums\Types.Enums.Connection4D.pas"/>
         <DCCReference Include="src\types\commons\Types.Commons.Connection4D.pas"/>
         <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.Connection4D.pas"/>
+        <DCCReference Include="src\registry\Registry.Connections.Connection4D.pas"/>
+        <DCCReference Include="src\types\enums\helpers\Types.Enums.Helpers.Databases.Connection4D.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

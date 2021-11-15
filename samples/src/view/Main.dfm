@@ -57,6 +57,7 @@ object Form1: TForm1
     Height = 57
     Caption = 'Heranca'
     TabOrder = 4
+    OnClick = Button3Click
   end
   object cdsIndustrias: TClientDataSet
     PersistDataPacket.Data = {

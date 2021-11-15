@@ -9,12 +9,13 @@ uses
   DTO.Pessoa in 'dto\impl\DTO.Pessoa.pas',
   DTO.Empresa in 'dto\impl\DTO.Empresa.pas',
   DTO.Industrias in 'dto\DTO.Industrias.pas',
-  Model.DbExpress.Connection4D;
+  Registry.Connections.Connection4D;
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  Registry.Connections.Connection4D.TRegistryConnection.RegistryConnection;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm1, Form1);
   Application.Run;

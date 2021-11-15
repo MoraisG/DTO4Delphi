@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2021/09/25 12:38:58.000.049,D:\Desenvolvimento\Fontes\DTO4Delphi\GroupDTO4Delphi.groupproj=C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2021/09/25 12:38:58.000.049,C:\Users\Gabriel e Alcione\OneDrive\Documentos\Embarcadero\Studio\Projects\ProjectGroup1.groupproj=D:\Desenvolvimento\Fontes\DTO4Delphi\GroupDTO4Delphi.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="D:\Desenvolvimento\Fontes\DTO4Delphi\samples\src\SampleDTO4D.dproj"/>
+		<Projects ActiveProject="D:\Desenvolvimento\Fontes\DTO4Delphi\Connection4D.dproj"/>
 	</Default.Personality>
 </BorlandProject>

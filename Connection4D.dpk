@@ -46,6 +46,9 @@ contains
   Types.Attributes.Connection4D in 'src\types\attributes\Types.Attributes.Connection4D.pas',
   Types.Enums.Connection4D in 'src\types\enums\Types.Enums.Connection4D.pas',
   Types.Commons.Connection4D in 'src\types\commons\Types.Commons.Connection4D.pas',
-  Types.Enums.Helpers.Connection4D in 'src\types\enums\helpers\Types.Enums.Helpers.Connection4D.pas';
+  Types.Enums.Helpers.Connection4D in 'src\types\enums\helpers\Types.Enums.Helpers.Connection4D.pas',
+  Registry.Connections.Connection4D in 'src\registry\Registry.Connections.Connection4D.pas',
+  Types.Enums.Helpers.Databases.Connection4D in 'src\types\enums\helpers\Types.Enums.Helpers.Databases.Connection4D.pas';
 
 end.
+

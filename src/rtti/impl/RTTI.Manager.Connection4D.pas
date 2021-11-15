@@ -5,7 +5,6 @@ interface
 uses
   System.RTTI,
   Types.Enums.Connection4D,
-  System.Generics.Collections,
   RTTI.Contracts.Connection4D;
 
 type
@@ -15,7 +14,6 @@ type
   private
     FContext: TRttiContext;
     FEnumDataBase: TEnumDataBase;
-    FEnumTenancy: TEnumTenancy;
     procedure SettingTenancy(AInterface: TRttiInterfaceType);
     procedure SettingDataBaseConnection(AInterface: TRttiInterfaceType);
   public
@@ -23,6 +21,7 @@ type
     destructor Destroy; override;
     class function New: IRTTIConnection4D<T>;
     function Connection: T;
+    function InfoDataAccess: IRTTIConnection4D<T>;
     function PoolConnection: IRTTIConnection4D<T>;
     class function GetClass: TClass;
   end;
@@ -30,10 +29,11 @@ type
 implementation
 
 uses
+  System.SysUtils,
   Types.Attributes.Connection4D,
-  Core.Registry.DTO4D,
   Types.Enums.Helpers.Connection4D,
-  Pool.Connection.Connection4D;
+  Pool.Connection.Connection4D,
+  Registry.Connections.Connection4D;
 
 { TRTTIManagerConnection4D<T:IInterface> }
 
@@ -71,7 +71,39 @@ end;
 
 class function TRTTIManagerConnection4D<T>.GetClass: TClass;
 begin
-  Result := TRegisterClassDTO4D.GetClass<T>;
+  Result := TRegistryConnection.GetClass<T>;
+end;
+
+function TRTTIManagerConnection4D<T>.InfoDataAccess: IRTTIConnection4D<T>;
+var
+  LType: TRttiType;
+  LInterface: TRttiInterfaceType;
+  LInstance: TRttiInstanceType;
+  LNotation: TCustomAttribute;
+begin
+  LType := FContext.GetType(GetClass);
+  LInstance := LType.AsInstance;
+  for LInterface in LInstance.GetImplementedInterfaces do
+  begin
+    for LNotation in LInterface.GetAttributes do
+    begin
+      if LNotation is DatabaseAccess then
+        TRegistryConnection.InfoConnection.SetDataAcess
+          (DatabaseAccess(LNotation).Component);
+
+      if LNotation is Database then
+      begin
+        TRegistryConnection.InfoConnection.SetDatabase
+          (Database(LNotation).Databases);
+
+        TRegistryConnection.InfoConnection.SetTeancy
+          (Database(LNotation).Tenant);
+      end;
+
+    end;
+    Break;
+  end;
+  Result := Self;
 end;
 
 class function TRTTIManagerConnection4D<T>.New: IRTTIConnection4D<T>;
@@ -87,24 +119,27 @@ var
   LNotation: TCustomAttribute;
   LEnum: TEnumDataBase;
 begin
-
+  Result := Self;
   LType := FContext.GetType(GetClass);
   LInstance := LType.AsInstance;
-  for LInterface in LInstance.GetImplementedInterfaces do
-  begin
-    for LNotation in LInterface.GetAttributes do
+  try
+    for LInterface in LInstance.GetImplementedInterfaces do
     begin
-      if LNotation is Database then
+      SettingTenancy(LInterface);
+      for LEnum := Oracle to Postgres do
       begin
-        TPoolConnection<T>.Pool.Add(Self.Connection);
-        FEnumTenancy := Database(LNotation).Tenant;
-        SettingTenancy(LInterface);
-        for LEnum := Oracle to Postgres do
+        FEnumDataBase := LEnum;
+        if LEnum in TRegistryConnection.InfoConnection.GetDatabase then
         begin
-          FEnumDataBase := LEnum;
+          TPoolConnection<T>.Pool.Add(Self.Connection);
           SettingDataBaseConnection(LInterface);
         end;
       end;
+    end;
+  except
+    on E: Exception do
+    begin
+
     end;
   end;
 end;
@@ -138,7 +173,7 @@ begin
       if LNotation is SetterTenancy then
       begin
         LMethod.Invoke(TValue.From<T>(TPoolConnection<T>.Pool.Last),
-          [FEnumTenancy.ToInteger]);
+          [TRegistryConnection.InfoConnection.GetTenancy.ToInteger]);
       end;
     end;
 end;

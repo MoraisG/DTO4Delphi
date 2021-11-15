@@ -25,6 +25,12 @@ type
     ['{8ADB281C-9FCB-4F2E-8FD3-1997F7DAE8DD}']
   end;
 
+  IConnectionParams = interface
+    ['{1653C6EB-55ED-4009-8444-6DA9582F0A94}']
+    function LoadInfoDatabase: IConnectionParams;
+    function SettingParams: IConnectionParams;
+  end;
+
   IModelQueryConnection4D = interface
     ['{069F995E-1F1A-4F0C-A178-39A9062ECA91}']
     function Close: IModelQueryConnection4D;

@@ -16,6 +16,8 @@ type
   TConnectionDbExpress = class(TConnectionCore4D, IConnectionDbExpress)
   private
     FPoolConnections: TObjectDictionary<Integer, TComponent>;
+    FEnumDatabase: TEnumDataBase;
+    FTenancy: TEnumTenancy;
   public
     constructor Create;
     destructor Destroy; override;
@@ -26,25 +28,27 @@ type
     function Conect: IModelConnection4D;
 
     [SetterDatabase]
-    function Database(AValue: Integer): IModelConnection4D;
-    function Disconect: IModelConnection4D;
-    function Generate: IModelConnection4D;
+    function Database(AValue: Integer): IModelConnection4D; override;
+    function Disconect: IModelConnection4D; override;
+    function LoadParams: IModelConnection4D; override;
 
     [SetterTenancy]
-    function TipoTenancy(AValue: TEnumTenancy): IModelConnection4D;
-    function PoolConnection: TObjectDictionary<Integer, TComponent>;
+    function TipoTenancy(AValue: TEnumTenancy): IModelConnection4D; override;
+    function PoolConnection: TObjectDictionary<Integer, TComponent>; override;
   end;
 
 implementation
 
 uses
+  SqlExpr,
   System.SysUtils,
-  Core.Registry.DTO4D;
+  Types.Enums.Helpers.Databases.Connection4D;
 { TConnectionDbExpress }
 
 function TConnectionDbExpress.Conect: IModelConnection4D;
 begin
   Result := Self;
+  FPoolConnections.Items[0];
 end;
 
 function TConnectionDbExpress.Connection(AID: Integer): TComponent;
@@ -54,18 +58,18 @@ end;
 
 constructor TConnectionDbExpress.Create;
 begin
-
+  FPoolConnections := TObjectDictionary<Integer, TComponent>.Create();
 end;
 
 function TConnectionDbExpress.Database(AValue: Integer): IModelConnection4D;
 begin
   Result := Self;
-  raise Exception.Create('Oracle');
+  FEnumDatabase := TEnumDataBase(AValue);
 end;
 
 destructor TConnectionDbExpress.Destroy;
 begin
-
+  FPoolConnections.Free;
   inherited;
 end;
 
@@ -74,9 +78,10 @@ begin
   Result := Self;
 end;
 
-function TConnectionDbExpress.Generate: IModelConnection4D;
+function TConnectionDbExpress.LoadParams: IModelConnection4D;
 begin
   Result := Self;
+  FEnumDatabase.DBExpressParametros(Self);
 end;
 
 class function TConnectionDbExpress.New: IConnectionDbExpress;
@@ -94,12 +99,7 @@ function TConnectionDbExpress.TipoTenancy(AValue: TEnumTenancy)
   : IModelConnection4D;
 begin
   Result := Self;
-
+  FTenancy := TEnumTenancy(AValue);
 end;
-
-initialization
-
-TRegisterClassDTO4D.RegisterClass
-  (TRegisterClassDTO4D.GetGUID<IConnectionDbExpress>, TConnectionDbExpress);
 
 end.
