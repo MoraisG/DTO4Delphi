@@ -22,7 +22,7 @@ type
     function Conect(AID: Integer): IModelConnection4D; virtual; abstract;
     function Database(AValue: Integer): IModelConnection4D; virtual; abstract;
     function Disconect: IModelConnection4D; virtual; abstract;
-    function Generate: IModelConnection4D; virtual; abstract;
+    function LoadParams: IModelConnection4D; virtual; abstract;
     function TipoTenancy(AValue: TEnumTenancy): IModelConnection4D;
       virtual; abstract;
     function PoolConnection: TObjectDictionary<Integer, TComponent>;
@@ -32,12 +32,13 @@ type
 implementation
 
 uses
+  Registry.Connections.Connection4D,
   System.SysUtils;
 { TConnectionCore4D }
 
 constructor TConnectionCore4D.Create;
 begin
-  raise Exception.Create('Classe abstract, não deve ser instanciada');
+  raise Exception.Create('Class abstract, there are not implementation');
 end;
 
 destructor TConnectionCore4D.Destroy;
@@ -50,5 +51,10 @@ class function TConnectionCore4D.New: IModelConnection4D;
 begin
   Result := Self.Create;
 end;
+
+initialization
+
+TRegistryConnection.RegisterClass
+  (TRegistryConnection.GetGUID<IModelConnection4D>, TConnectionCore4D);
 
 end.
